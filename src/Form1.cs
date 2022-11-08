@@ -32,39 +32,18 @@ namespace paintApp
         int index;
         int x, y, sY, sX, cX, cY;
 
-        private void pic_MouseDown(object sender, MouseEventArgs e)
+        private void pic_Paint(object sender, PaintEventArgs e)
         {
-            paint = true;
-            py = e.Location;
 
-            cX = e.X;
-            cY = e.Y;
         }
 
-        private void pic_MouseMove(object sender, MouseEventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
-            if (paint)
-            {
-                if (index == 1)
-                {
-                    px = e.Location;
-                    g.DrawLine(p, px, py);
-                    py = px;
-                }
-                if (index == 2)
-                {
-                    px = e.Location;
-                    g.DrawLine(erase, px, py);
-                    px = py;
-                }
-            }
 
-            pic.Refresh();
+        }
 
-            x = e.X;
-            y = e.Y;
-            sX = e.X - cX;
-            sY = e.Y - cY;
+        private void pic_ellipse_Click(object sender, EventArgs e)
+        {
 
         }
     }
