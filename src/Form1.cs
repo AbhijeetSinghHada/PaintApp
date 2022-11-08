@@ -23,6 +23,7 @@ namespace paintApp
             bm = new Bitmap(pic.Width, pic.Height);
             g = Graphics.FromImage(bm);
             g.Clear(Color.White);
+            pic.BackgroundImage = bm;
         }
 
         Bitmap bm;
@@ -43,7 +44,7 @@ namespace paintApp
         }
 
         
-        private void pic_MouseDow(object sender, MouseEventArgs e)
+        private void pic_MouseDown(object sender, MouseEventArgs e)
         {
             paint = true;
             py = e.Location;
@@ -58,7 +59,7 @@ namespace paintApp
             {
                 if (index == 1)
                 {
-                    px = e.Location;
+                    px = e.Location; 
                     g.DrawLine(p, px, py);
                     py = px;
                 }
@@ -66,11 +67,11 @@ namespace paintApp
                 {
                     px = e.Location;
                     g.DrawLine(eraser, px, py);
-                    px = py;
+                    py = px;
                 }
+                pic.Refresh();
             }
 
-            pic.Refresh();
 
             x = e.X;
             y = e.Y;
@@ -79,14 +80,32 @@ namespace paintApp
 
         }
 
-        
+        private void pic_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            if (paint)
+            {
+                if (index == 3)
+                {
+                    g.DrawEllipse(p, cX, cY, sX, sY);
+                }
+                if (index == 4)
+                {
+                    g.DrawRectangle(p, cX, cY, sX, sY);
+                }
+                if (index == 5)
+                {
+                    g.DrawLine(p, cX, cY, sX, sY);
+                }
+            }
+        }
 
         private void pic_MouseUp(object sender, MouseEventArgs e)
         {
             paint = false;
 
             sX = x - cX;
-            sY = y = cY;
+            sY = y - cY;
 
             if (index == 3)
             {
@@ -101,23 +120,10 @@ namespace paintApp
                 g.DrawLine(p, cX, cY, sX, sY);  
             }
         }
-        private void pic_Paint()
-        {
 
-        }
         private void btn_pencil_Click(object sender, EventArgs e)
         {
             index = 1;
-        }
-
-        private void pic_MouseDown(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void btn_eraser_Click_1(object sender, EventArgs e)
-        {
-
         }
 
         private void btn_eraser_Click(object sender, EventArgs e)
@@ -135,14 +141,6 @@ namespace paintApp
         private void btn_line_Click(object sender, EventArgs e)
         {
             index = 5;
-        }
-        private void pic_ellipse_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void pic_Paint(object sender, EventArgs e)
-        {
-
         }
         
 
