@@ -32,7 +32,7 @@ namespace paintApp
         Graphics g;
         bool paint = false;
         Point px, py;
-        Pen p = new Pen(Color.Black, 1);
+        Pen p = new Pen(Color.Black, 3);
         Pen eraser = new Pen(Color.White, 10);
 
         int index;
@@ -53,6 +53,7 @@ namespace paintApp
 
             cX = e.X;
             cY = e.Y;
+            
         }
 
         private void pic_MouseMove(object sender, MouseEventArgs e)
@@ -72,7 +73,8 @@ namespace paintApp
                     g.DrawLine(eraser, px, py);
                     py = px;
                 }
-                pic.Refresh();
+                pic.Invalidate();
+                
             }
 
 
