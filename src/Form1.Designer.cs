@@ -31,17 +31,15 @@
             this.pic = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.Open = new System.Windows.Forms.Button();
             this.btn_clr = new System.Windows.Forms.Button();
             this.btn_save = new System.Windows.Forms.Button();
             this.btn_ellipse = new System.Windows.Forms.Button();
-            this.btn_color = new System.Windows.Forms.Button();
             this.btn_rect = new System.Windows.Forms.Button();
             this.fn_eraser = new System.Windows.Forms.Button();
-            this.btn_fill = new System.Windows.Forms.Button();
             this.fn_line = new System.Windows.Forms.Button();
             this.btn_pencil = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.Open = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -79,10 +77,8 @@
             this.panel3.Controls.Add(this.btn_clr);
             this.panel3.Controls.Add(this.btn_save);
             this.panel3.Controls.Add(this.btn_ellipse);
-            this.panel3.Controls.Add(this.btn_color);
             this.panel3.Controls.Add(this.btn_rect);
             this.panel3.Controls.Add(this.fn_eraser);
-            this.panel3.Controls.Add(this.btn_fill);
             this.panel3.Controls.Add(this.fn_line);
             this.panel3.Controls.Add(this.btn_pencil);
             this.panel3.Location = new System.Drawing.Point(11, 10);
@@ -90,6 +86,19 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(115, 562);
             this.panel3.TabIndex = 0;
+            // 
+            // Open
+            // 
+            this.Open.BackColor = System.Drawing.Color.Black;
+            this.Open.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Open.Location = new System.Drawing.Point(16, 407);
+            this.Open.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Open.Name = "Open";
+            this.Open.Size = new System.Drawing.Size(74, 22);
+            this.Open.TabIndex = 10;
+            this.Open.Text = "Open";
+            this.Open.UseVisualStyleBackColor = false;
+            this.Open.Click += new System.EventHandler(this.Open_Click);
             // 
             // btn_clr
             // 
@@ -123,7 +132,7 @@
             this.btn_ellipse.ForeColor = System.Drawing.Color.White;
             this.btn_ellipse.Image = global::paintApp.Properties.Resources.circle;
             this.btn_ellipse.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_ellipse.Location = new System.Drawing.Point(16, 344);
+            this.btn_ellipse.Location = new System.Drawing.Point(16, 293);
             this.btn_ellipse.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_ellipse.Name = "btn_ellipse";
             this.btn_ellipse.Size = new System.Drawing.Size(74, 47);
@@ -132,28 +141,13 @@
             this.btn_ellipse.UseVisualStyleBackColor = false;
             this.btn_ellipse.Click += new System.EventHandler(this.btn_ellipse_Click);
             // 
-            // btn_color
-            // 
-            this.btn_color.BackColor = System.Drawing.Color.Black;
-            this.btn_color.ForeColor = System.Drawing.Color.White;
-            this.btn_color.Image = global::paintApp.Properties.Resources.color;
-            this.btn_color.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_color.Location = new System.Drawing.Point(16, 168);
-            this.btn_color.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_color.Name = "btn_color";
-            this.btn_color.Size = new System.Drawing.Size(74, 43);
-            this.btn_color.TabIndex = 5;
-            this.btn_color.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_color.UseCompatibleTextRendering = true;
-            this.btn_color.UseVisualStyleBackColor = false;
-            // 
             // btn_rect
             // 
             this.btn_rect.BackColor = System.Drawing.Color.Black;
             this.btn_rect.ForeColor = System.Drawing.Color.White;
             this.btn_rect.Image = global::paintApp.Properties.Resources.rectangle;
             this.btn_rect.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_rect.Location = new System.Drawing.Point(16, 278);
+            this.btn_rect.Location = new System.Drawing.Point(16, 213);
             this.btn_rect.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_rect.Name = "btn_rect";
             this.btn_rect.Size = new System.Drawing.Size(74, 52);
@@ -168,7 +162,7 @@
             this.fn_eraser.ForeColor = System.Drawing.Color.White;
             this.fn_eraser.Image = global::paintApp.Properties.Resources.eraser;
             this.fn_eraser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.fn_eraser.Location = new System.Drawing.Point(16, 64);
+            this.fn_eraser.Location = new System.Drawing.Point(16, 80);
             this.fn_eraser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.fn_eraser.Name = "fn_eraser";
             this.fn_eraser.Size = new System.Drawing.Size(74, 43);
@@ -177,27 +171,13 @@
             this.fn_eraser.UseVisualStyleBackColor = false;
             this.fn_eraser.Click += new System.EventHandler(this.fn_eraser_Click);
             // 
-            // btn_fill
-            // 
-            this.btn_fill.BackColor = System.Drawing.Color.Black;
-            this.btn_fill.ForeColor = System.Drawing.Color.White;
-            this.btn_fill.Image = global::paintApp.Properties.Resources.bucket;
-            this.btn_fill.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_fill.Location = new System.Drawing.Point(16, 120);
-            this.btn_fill.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_fill.Name = "btn_fill";
-            this.btn_fill.Size = new System.Drawing.Size(74, 43);
-            this.btn_fill.TabIndex = 3;
-            this.btn_fill.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_fill.UseVisualStyleBackColor = false;
-            // 
             // fn_line
             // 
             this.fn_line.BackColor = System.Drawing.Color.Black;
             this.fn_line.ForeColor = System.Drawing.Color.White;
             this.fn_line.Image = global::paintApp.Properties.Resources.line;
             this.fn_line.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.fn_line.Location = new System.Drawing.Point(16, 223);
+            this.fn_line.Location = new System.Drawing.Point(16, 149);
             this.fn_line.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.fn_line.Name = "fn_line";
             this.fn_line.Size = new System.Drawing.Size(74, 43);
@@ -233,19 +213,6 @@
             this.panel2.Size = new System.Drawing.Size(57, 581);
             this.panel2.TabIndex = 2;
             // 
-            // Open
-            // 
-            this.Open.BackColor = System.Drawing.Color.Black;
-            this.Open.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Open.Location = new System.Drawing.Point(16, 407);
-            this.Open.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Open.Name = "Open";
-            this.Open.Size = new System.Drawing.Size(74, 22);
-            this.Open.TabIndex = 10;
-            this.Open.Text = "Open";
-            this.Open.UseVisualStyleBackColor = false;
-            this.Open.Click += new System.EventHandler(this.Open_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -273,9 +240,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btn_rect;
         private System.Windows.Forms.Button btn_ellipse;
-        private System.Windows.Forms.Button btn_color;
         private System.Windows.Forms.Button fn_eraser;
-        private System.Windows.Forms.Button btn_fill;
         private System.Windows.Forms.Button fn_line;
         private System.Windows.Forms.Button btn_clr;
         private System.Windows.Forms.Button btn_save;
