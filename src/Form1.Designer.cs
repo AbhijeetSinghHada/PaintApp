@@ -33,15 +33,15 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.btn_clr = new System.Windows.Forms.Button();
             this.btn_save = new System.Windows.Forms.Button();
-            this.btn_circle = new System.Windows.Forms.Button();
             this.btn_ellipse = new System.Windows.Forms.Button();
             this.btn_color = new System.Windows.Forms.Button();
             this.btn_rect = new System.Windows.Forms.Button();
-            this.btn_eraser = new System.Windows.Forms.Button();
+            this.fn_eraser = new System.Windows.Forms.Button();
             this.btn_fill = new System.Windows.Forms.Button();
-            this.btn_line = new System.Windows.Forms.Button();
+            this.fn_line = new System.Windows.Forms.Button();
             this.btn_pencil = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.Open = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -75,15 +75,15 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Black;
+            this.panel3.Controls.Add(this.Open);
             this.panel3.Controls.Add(this.btn_clr);
             this.panel3.Controls.Add(this.btn_save);
-            this.panel3.Controls.Add(this.btn_circle);
             this.panel3.Controls.Add(this.btn_ellipse);
             this.panel3.Controls.Add(this.btn_color);
             this.panel3.Controls.Add(this.btn_rect);
-            this.panel3.Controls.Add(this.btn_eraser);
+            this.panel3.Controls.Add(this.fn_eraser);
             this.panel3.Controls.Add(this.btn_fill);
-            this.panel3.Controls.Add(this.btn_line);
+            this.panel3.Controls.Add(this.fn_line);
             this.panel3.Controls.Add(this.btn_pencil);
             this.panel3.Location = new System.Drawing.Point(11, 10);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -95,40 +95,27 @@
             // 
             this.btn_clr.BackColor = System.Drawing.Color.Black;
             this.btn_clr.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_clr.Location = new System.Drawing.Point(16, 512);
+            this.btn_clr.Location = new System.Drawing.Point(16, 477);
             this.btn_clr.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_clr.Name = "btn_clr";
-            this.btn_clr.Size = new System.Drawing.Size(79, 22);
+            this.btn_clr.Size = new System.Drawing.Size(74, 22);
             this.btn_clr.TabIndex = 9;
             this.btn_clr.Text = "Clear";
             this.btn_clr.UseVisualStyleBackColor = false;
+            this.btn_clr.Click += new System.EventHandler(this.btn_clr_Click);
             // 
             // btn_save
             // 
             this.btn_save.BackColor = System.Drawing.Color.Black;
             this.btn_save.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_save.Location = new System.Drawing.Point(17, 477);
+            this.btn_save.Location = new System.Drawing.Point(16, 442);
             this.btn_save.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_save.Name = "btn_save";
-            this.btn_save.Size = new System.Drawing.Size(79, 22);
+            this.btn_save.Size = new System.Drawing.Size(74, 22);
             this.btn_save.TabIndex = 8;
             this.btn_save.Text = "Save";
             this.btn_save.UseVisualStyleBackColor = false;
-            // 
-            // btn_circle
-            // 
-            this.btn_circle.BackColor = System.Drawing.Color.Black;
-            this.btn_circle.ForeColor = System.Drawing.Color.White;
-            this.btn_circle.Image = global::paintApp.Properties.Resources.circle;
-            this.btn_circle.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_circle.Location = new System.Drawing.Point(16, 405);
-            this.btn_circle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_circle.Name = "btn_circle";
-            this.btn_circle.Size = new System.Drawing.Size(74, 50);
-            this.btn_circle.TabIndex = 1;
-            this.btn_circle.Text = "circle";
-            this.btn_circle.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_circle.UseVisualStyleBackColor = false;
+            this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
             // 
             // btn_ellipse
             // 
@@ -141,7 +128,6 @@
             this.btn_ellipse.Name = "btn_ellipse";
             this.btn_ellipse.Size = new System.Drawing.Size(74, 47);
             this.btn_ellipse.TabIndex = 6;
-            this.btn_ellipse.Text = "Ellipse";
             this.btn_ellipse.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_ellipse.UseVisualStyleBackColor = false;
             this.btn_ellipse.Click += new System.EventHandler(this.btn_ellipse_Click);
@@ -157,7 +143,6 @@
             this.btn_color.Name = "btn_color";
             this.btn_color.Size = new System.Drawing.Size(74, 43);
             this.btn_color.TabIndex = 5;
-            this.btn_color.Text = " color";
             this.btn_color.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_color.UseCompatibleTextRendering = true;
             this.btn_color.UseVisualStyleBackColor = false;
@@ -173,26 +158,24 @@
             this.btn_rect.Name = "btn_rect";
             this.btn_rect.Size = new System.Drawing.Size(74, 52);
             this.btn_rect.TabIndex = 7;
-            this.btn_rect.Text = "rectangle";
             this.btn_rect.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_rect.UseVisualStyleBackColor = false;
             this.btn_rect.Click += new System.EventHandler(this.btn_rect_Click);
             // 
-            // btn_eraser
+            // fn_eraser
             // 
-            this.btn_eraser.BackColor = System.Drawing.Color.Black;
-            this.btn_eraser.ForeColor = System.Drawing.Color.White;
-            this.btn_eraser.Image = global::paintApp.Properties.Resources.eraser;
-            this.btn_eraser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_eraser.Location = new System.Drawing.Point(16, 64);
-            this.btn_eraser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_eraser.Name = "btn_eraser";
-            this.btn_eraser.Size = new System.Drawing.Size(74, 43);
-            this.btn_eraser.TabIndex = 4;
-            this.btn_eraser.Text = "Eraser";
-            this.btn_eraser.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_eraser.UseVisualStyleBackColor = false;
-            this.btn_eraser.Click += new System.EventHandler(this.btn_eraser_Click);
+            this.fn_eraser.BackColor = System.Drawing.Color.Black;
+            this.fn_eraser.ForeColor = System.Drawing.Color.White;
+            this.fn_eraser.Image = global::paintApp.Properties.Resources.eraser;
+            this.fn_eraser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.fn_eraser.Location = new System.Drawing.Point(16, 64);
+            this.fn_eraser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.fn_eraser.Name = "fn_eraser";
+            this.fn_eraser.Size = new System.Drawing.Size(74, 43);
+            this.fn_eraser.TabIndex = 4;
+            this.fn_eraser.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.fn_eraser.UseVisualStyleBackColor = false;
+            this.fn_eraser.Click += new System.EventHandler(this.fn_eraser_Click);
             // 
             // btn_fill
             // 
@@ -205,25 +188,23 @@
             this.btn_fill.Name = "btn_fill";
             this.btn_fill.Size = new System.Drawing.Size(74, 43);
             this.btn_fill.TabIndex = 3;
-            this.btn_fill.Text = "Fill";
             this.btn_fill.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_fill.UseVisualStyleBackColor = false;
             // 
-            // btn_line
+            // fn_line
             // 
-            this.btn_line.BackColor = System.Drawing.Color.Black;
-            this.btn_line.ForeColor = System.Drawing.Color.White;
-            this.btn_line.Image = global::paintApp.Properties.Resources.line;
-            this.btn_line.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_line.Location = new System.Drawing.Point(16, 223);
-            this.btn_line.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_line.Name = "btn_line";
-            this.btn_line.Size = new System.Drawing.Size(74, 43);
-            this.btn_line.TabIndex = 2;
-            this.btn_line.Text = "Line";
-            this.btn_line.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_line.UseVisualStyleBackColor = false;
-            this.btn_line.Click += new System.EventHandler(this.btn_line_Click);
+            this.fn_line.BackColor = System.Drawing.Color.Black;
+            this.fn_line.ForeColor = System.Drawing.Color.White;
+            this.fn_line.Image = global::paintApp.Properties.Resources.line;
+            this.fn_line.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.fn_line.Location = new System.Drawing.Point(16, 223);
+            this.fn_line.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.fn_line.Name = "fn_line";
+            this.fn_line.Size = new System.Drawing.Size(74, 43);
+            this.fn_line.TabIndex = 2;
+            this.fn_line.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.fn_line.UseVisualStyleBackColor = false;
+            this.fn_line.Click += new System.EventHandler(this.fn_line_Click);
             // 
             // btn_pencil
             // 
@@ -236,7 +217,6 @@
             this.btn_pencil.Name = "btn_pencil";
             this.btn_pencil.Size = new System.Drawing.Size(74, 43);
             this.btn_pencil.TabIndex = 0;
-            this.btn_pencil.Text = "pencil";
             this.btn_pencil.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_pencil.UseVisualStyleBackColor = false;
             this.btn_pencil.Click += new System.EventHandler(this.btn_pencil_Click);
@@ -252,6 +232,19 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(57, 581);
             this.panel2.TabIndex = 2;
+            // 
+            // Open
+            // 
+            this.Open.BackColor = System.Drawing.Color.Black;
+            this.Open.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Open.Location = new System.Drawing.Point(16, 407);
+            this.Open.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Open.Name = "Open";
+            this.Open.Size = new System.Drawing.Size(74, 22);
+            this.Open.TabIndex = 10;
+            this.Open.Text = "Open";
+            this.Open.UseVisualStyleBackColor = false;
+            this.Open.Click += new System.EventHandler(this.Open_Click);
             // 
             // Form1
             // 
@@ -281,12 +274,12 @@
         private System.Windows.Forms.Button btn_rect;
         private System.Windows.Forms.Button btn_ellipse;
         private System.Windows.Forms.Button btn_color;
-        private System.Windows.Forms.Button btn_eraser;
+        private System.Windows.Forms.Button fn_eraser;
         private System.Windows.Forms.Button btn_fill;
-        private System.Windows.Forms.Button btn_line;
-        private System.Windows.Forms.Button btn_circle;
+        private System.Windows.Forms.Button fn_line;
         private System.Windows.Forms.Button btn_clr;
         private System.Windows.Forms.Button btn_save;
+        private System.Windows.Forms.Button Open;
     }
 }
 

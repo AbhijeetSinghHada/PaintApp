@@ -5,10 +5,12 @@ using System.Configuration;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace paintApp
 {
@@ -57,6 +59,7 @@ namespace paintApp
         {
             if (paint)
             {
+
                 if (index == 1)
                 {
                     px = e.Location; 
@@ -95,8 +98,38 @@ namespace paintApp
                 }
                 if (index == 5)
                 {
-                    g.DrawLine(p, cX, cY, sX, sY);
+                    g.DrawLine(p, cX, cY, x, y);
                 }
+            }
+        }
+
+        private void btn_clr_Click(object sender, EventArgs e)
+        {
+            g.Clear(Color.White);
+            pic.BackgroundImage = bm;
+            pic.Refresh();
+        }
+
+        private void btn_save_Click(object sender, EventArgs e)
+        {
+            var dgb = new SaveFileDialog();
+            dgb.Filter = "Image(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+            if (dgb.ShowDialog() == DialogResult.OK)
+            {
+                Bitmap btm = bm.Clone(new Rectangle(0, 0, pic.Width, pic.Height), bm.PixelFormat);
+                btm.Save(dgb.FileName, ImageFormat.Bmp);
+            }
+        }
+
+        private void Open_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+            open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                bm = new Bitmap(open.FileName);
+                g = Graphics.FromImage(bm);
+                pic.BackgroundImage = bm;
             }
         }
 
@@ -117,7 +150,7 @@ namespace paintApp
             }
             if (index == 5)
             {
-                g.DrawLine(p, cX, cY, sX, sY);  
+                g.DrawLine(p, cX, cY, x,y);  
             }
         }
 
@@ -126,7 +159,7 @@ namespace paintApp
             index = 1;
         }
 
-        private void btn_eraser_Click(object sender, EventArgs e)
+        private void fn_eraser_Click(object sender, EventArgs e)
         {
             index = 2;
         }
@@ -138,7 +171,7 @@ namespace paintApp
         {
             index = 4;
         }
-        private void btn_line_Click(object sender, EventArgs e)
+        private void fn_line_Click(object sender, EventArgs e)
         {
             index = 5;
         }
